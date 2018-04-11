@@ -1,0 +1,10 @@
+Saxon package is a collection of tools for processing XML documents. Amongst its tools it has a XSLT processor. The XLST template transforms Open Street Map XML data into .ttl but in order to usi it with SANSA we need to transform it into .nt (N-Triple Store). These tools can be used from the command line. 
+
+After openning a terminal in the folder of Saxon we can use the following commnad to make the transformation: 
+java -jar saxon9he.jar -xsl:template.xsl -s:xmlfile.xml -o:outputfile.ttl
+
+After having transformed the XML of Open Street Map into .ttl we use RDF2RDF tool to transform it into .nt, just go to the folder with the rdf2rdf.jar and execute the following command: 
+java -jar rdf2rdf-1.0.1-2.3.1.jar osmData.ttl .nt
+
+This command will create a osmData.nt file from the osmData.ttl file.  
+

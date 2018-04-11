@@ -1,0 +1,32 @@
+#!/bin/bash
+clear
+
+echo "Declaring Variables"
+
+OsmFileXML=$1
+OsmFileTTL="$1.ttl"
+OsmFileNT="$1.nt"
+
+maxLat=$2
+minLat=$3
+maxLon=$4
+minLon=$5
+
+OSMAPI="https://api.openstreetmap.org/api/0.6/map?bbox=$5,$3,$4,$2"
+
+echo "Constructed URL: "
+echo $OSMAPI
+
+wget -O $1 $OSMAPI
+
+echo "Retrieval finished"
+
+java -jar SaxonHE9-7-0-15J/saxon9he.jar -xsl:Templates/osm-ways.xsl -s:$OsmFileXML -o:$OsmFileTTL
+
+rm $OsmFileXML
+
+java -jar rdf2rdf-1.0.1-2.3.1.jar $OsmFileTTL .nt
+
+mv $OsmFileNT Output\
+
+rm $OsmFileTTL
