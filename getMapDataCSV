@@ -20,7 +20,7 @@ wget -O $1 $OSMAPI
 
 echo "Retrieval finished"
 
-java -jar SaxonHE9-7-0-15J/saxon9he.jar -xsl:Templates/osm-ways.xsl -s:$OsmFileXML -o:$OsmFileCSV
+java -jar SaxonHE9-7-0-15J/saxon9he.jar -xsl:Templates/osm-ways-csv.xsl -s:$OsmFileXML -o:$OsmFileCSV
 
 rm $OsmFileXML
 
