@@ -4,8 +4,7 @@ clear
 echo "Declaring Variables"
 
 OsmFileXML=$1
-OsmFileTTL="$1.ttl"
-OsmFileNT="$1.nt"
+OsmFileCSV="$1.csv"
 
 maxLat=$2
 minLat=$3
@@ -21,12 +20,8 @@ wget -O $1 $OSMAPI
 
 echo "Retrieval finished"
 
-java -jar SaxonHE9-7-0-15J/saxon9he.jar -xsl:Templates/osm-ways.xsl -s:$OsmFileXML -o:$OsmFileTTL
+java -jar SaxonHE9-7-0-15J/saxon9he.jar -xsl:Templates/osm-ways.xsl -s:$OsmFileXML -o:$OsmFileCSV
 
 rm $OsmFileXML
 
-java -jar rdf2rdf-1.0.1-2.3.1.jar $OsmFileTTL .nt
-
-mv $OsmFileNT Output\
-
-rm $OsmFileTTL
+mv $OsmFileCSV Output\
