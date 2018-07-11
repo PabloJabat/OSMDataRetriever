@@ -51,7 +51,7 @@
                 &lt;urn:osm:way:geometry:uuid:<xsl:value-of select="$id"/>&gt; osmrdf:isTwoWayStreet "False" .
             </xsl:when>
             <xsl:otherwise>
-                &lt;urn:osm:way:geometry:uuid:<xsl:value-of select="$id"/>&gt; osmrdf:isTwoWayStreet "False" .
+                &lt;urn:osm:way:geometry:uuid:<xsl:value-of select="$id"/>&gt; osmrdf:isTwoWayStreet "True" .
             </xsl:otherwise>
           </xsl:choose>
         </xsl:if>

@@ -32,10 +32,10 @@
 <xsl:value-of select="$id"/>-LineString((<xsl:value-of select="$linestring"/>))-True
 </xsl:when>
 <xsl:when test="$doesntHaveTwoWay">
-<xsl:value-of select="$id"/>-LineString((<xsl:value-of select="$linestring"/>))-True
+<xsl:value-of select="$id"/>-LineString((<xsl:value-of select="$linestring"/>))-False
 </xsl:when>
 <xsl:otherwise>
-<xsl:value-of select="$id"/>-LineString((<xsl:value-of select="$linestring"/>))-False
+<xsl:value-of select="$id"/>-LineString((<xsl:value-of select="$linestring"/>))-True
 </xsl:otherwise>
 </xsl:choose>
 </xsl:if>
