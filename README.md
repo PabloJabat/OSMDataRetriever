@@ -1,4 +1,4 @@
-# OSMTripleStoreConverter
+# OSMDataRetriever
 
 ## 1. Installation
 
